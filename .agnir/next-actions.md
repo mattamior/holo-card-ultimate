@@ -1,14 +1,16 @@
 # Next Actions — Holo Card Ultimate
 
-1. **Perform source-level audit of the three approved visual references.** Inspect shader/CSS pipeline, reflection direction, interaction/tilt mapping, texture assets, masking, layering, dependencies, and current license per repository. Record findings with file/commit references.
-2. **Compare how effects are produced.** Distinguish foil diffraction-style effects, glare, masked reflections, specular/metallic shading, character/background depth, and true lenticular multi-view switching. Identify reusable principles versus source-bound implementations.
-3. **Define a modular optical effect contract.** Separate card document structure, editable layers, material/texture/mask state, light/view input, preview renderer, and export renderer. Recommend technology only after source audit.
-4. **Prototype three acceptance cards:** full rainbow foil; normal character with independent holo background and border; multi-frame tilt-driven flip/lenticular visual with an independently reflective border.
-5. **Evaluate feasibility and licensing.** Record attribution obligations, performance on desktop/mobile, browser sensor permissions, static/dynamic export limitations, and print-interlacing scope.
-6. **Define MVP editor workflow and verifiable acceptance checks.** Asset import, layout, masking, material presets, live preview, project save/reopen, and export; do not declare these implemented before tests.
+1. **Review the completed static source audit** at docs/research/visual-reference-source-audit.md. Confirm that the proposed material families match desired physical-card aesthetics; present examples without assuming licensing rights.
+2. **Resolve proposal boundaries** from docs/architecture/optical-engine-proposal.md: whether WebGL-first shader engine and editor separation should become an accepted project architecture; framework choice (React/Vue/Svelte) remains open.
+3. **Prepare legal/asset matrix** for priority projects: GPL-3.0 (#1/#2), MIT (#6), independent status of third-party character images, masks, textures, fonts, and CDN downloads; choose legal original test assets.
+4. **Run the upstream demos / prototype in a real browser** and record angular screenshots, device/browser differences, WebGL availability, FPS, memory and texture/CORS/export behavior; static audit is not execution evidence.
+5. **Build PoC 0 and PoC 1** as separate reviewable increments: normalized input/angle response, then foil + glitter + masked border materials with reproducible save/export.
+6. **Investigate and prototype PoC 2/3** after early feedback: Shader registry and compile tests; multi-frame lenticular switching separate from single-image parallax.
+7. **Build MVP editor workflow** (asset, layers, visual masks, materials, deterministic export/project reopen) only after visual and technology acceptance gates are established.
+8. **Verify genuine fresh ChatGPT Project Agnir activation** from an independent new conversation when convenient; Principal reports locator instructions configured.
 
-## Blockers / pending validation
+## Status
 
-- No source-level audit or code prototype is complete.
-- Licensing and final Web stack are not yet selected.
-- ChatGPT Project execution-surface locator setup may require manual configuration; repository activation is independent.
+- Static source audit and architecture proposal completed and version-pinned 2026-10-20.
+- No runtime validation or product implementation completed.
+- No new framework/license architecture decision has been accepted by Principal.

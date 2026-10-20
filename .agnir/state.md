@@ -4,33 +4,35 @@
 
 - Canonical repository: https://github.com/mattamior/holo-card-ultimate
 - Product name: 闪卡究极版 / Holo Card Ultimate.
-- Current phase: foundational research and technical planning; **no Web editor, rendering engine, or prototype has been implemented**.
-- The repository was newly created and Agnir Core 1.0 / repository-filesystem 1.0 is being initialized on `main`.
+- Agnir: v1.0.2 distribution, Core 1.0, repository-filesystem/1.0; selected authoritative continuity on main.
+- Current phase: **source-level research and architecture proposal**. There is **no implemented Web editor, optical shader prototype or tested export pipeline**.
+- ChatGPT Project persistent locator: Principal reported configuration complete; genuine independent fresh-session activation is not yet verified here.
 
 ## Product scope
 
-The word 闪卡 means optical-effect **character collectible cards**, historically encountered in snack promotions/card packs. It does **not** refer to two-sided educational memorization flashcards.
+闪卡 means angle-responsive optical-effect character collectible cards (holographic foil, reflective border, metallic, glitter, lenticular/flip combinations), NOT educational front/back memorization cards.
 
-Intended experience: non-programmers can import character artwork, build a card, choose masked optical effects (rainbow holo foil, reflective border, metal/gloss, lenticular/flip, and combinations), preview angle-responsive behavior interactively on the Web, then save an editable project and export outputs.
+Goal: a high-fidelity, zero-code, Web collectible-card creation studio with editable material regions and projects, accurate motion-driven preview, and export.
 
-Visual authenticity and material composability matter more than gratuitous flipping animations.
+## Preferred visual references and exclusions
 
-## Agreed open-source reference direction
+- Priority #1: https://github.com/simeydotme/pokemon-cards-css
+- Priority #2: https://github.com/simeydotme/pokemon-cards-151
+- Priority #6: https://github.com/selop/pokebox
+- Excluded from candidate shortlist: kongyo2/cards-css, simeydotme/hover-tilt, fito-cheol/Card-Animation-React.
+- Specialized other projects remain optional, subject to need and license review.
 
-Priority visual references (research and decompose techniques before selecting any code to reuse):
+## Technical research completed (2026-10-20)
 
-1. https://github.com/simeydotme/pokemon-cards-css
-2. https://github.com/simeydotme/pokemon-cards-151
-3. https://github.com/selop/pokebox
+A **static, revision-pinned GitHub source audit** for #1/#2/#6 has been saved at docs/research/visual-reference-source-audit.md. It identifies CSS/GLSL foil synthesis, independent pointer/background/highlight signals, fine-grained glitter masks, off-axis projection, per-frame local card UV calculation, uniform registry and source-license constraints.
 
-Explicitly excluded from the primary technology shortlist: `kongyo2/cards-css`, `simeydotme/hover-tilt`, `fito-cheol/Card-Animation-React`. Other projects can be researched for specific needs (masks, lenticular authoring, printing, export), subject to licenses.
+A separate, explicitly **unapproved proposal** has been saved at docs/architecture/optical-engine-proposal.md. It recommends decoupling CardDocument, AssetStore, MaskEditor, InputAdapter, GPU MaterialEngine, Renderer, and Exporter.
 
-## Unresolved architecture
-
-No framework or rendering stack is yet finally selected. The earlier discussion proposed a layered optical-material engine with a visual editor, but implementation is pending investigation of the three preferred repositories.
-
-Respect source licenses; do not copy GPL-licensed implementation into a closed-source project by assumption. Commercial/open-source distribution choices have not been determined.
+No on-device visual comparison, performance benchmarks, legal clearance, Shader integration or live browser output validation was performed. No framework or license/distribution strategy has been decided.
 
 ## Source of authority
 
-Principal decisions recorded in `.agnir/decisions.md`; remaining tasks in `.agnir/next-actions.md`; initialization evidence in `.agnir/evidence/`.
+- Agreed product decisions: .agnir/decisions.md (unchanged by this research).
+- Remaining tasks: .agnir/next-actions.md.
+- Source audit/proposal: docs/research/ and docs/architecture/.
+- Research receipt: .agnir/evidence/2026-10-20-three-visual-source-audit.md.
