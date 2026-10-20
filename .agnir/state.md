@@ -12,6 +12,8 @@ Added lightweight TypeScript + Vite / Three.js WebGL2 renderer with original GLS
 
 This is a **material playground**, not a general asset-upload or mask-painting editor and not a true lenticular multi-view or physical-print tool. All artwork/shader code was independently produced for this PoC, not imported from the GPL projects or Pokémon.
 
-Local Node 22 `npm test`: **8/8 passed** (logic and shader source contracts). SVG rasterized/visually inspected. The local execution environment cannot reach npm registry, so production `npm run build`, TypeScript typechecking, WebGL runtime shader compilation, PNG browser readback, and FPS/mobile visual quality have **not** yet been independently verified. GitHub Actions workflows were added for validation and Pages publication; monitor their results and do not claim success before checks.
+Local Node 22 `npm test`: **8/8 passed** (logic and shader source contracts). SVG rasterized/visually inspected. GitHub CI run [39405564584](https://github.com/mattamior/holo-card-ultimate/actions/runs/39405564584) passed npm install, all 8 Node tests, TypeScript typechecking and Vite production build. The local environment cannot reach npm registry; WebGL runtime shader compilation, PNG browser readback, and FPS/mobile visual quality have **not** yet been independently verified. GitHub Actions workflows were added for validation and Pages publication; monitor their results and do not claim success before checks.
 
 See `docs/POC-README.md` and `.agnir/evidence/2026-10-20-holo-engine-poc-v01.md`.
+
+GitHub Pages initial workflow run [39405564569](https://github.com/mattamior/holo-card-ultimate/actions/runs/39405564569) failed at configure-pages: Pages site not found. A subsequent workflow update attempts configure-pages enablement; do not claim live deployment until successful status/readback.

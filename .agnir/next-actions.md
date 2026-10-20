@@ -1,7 +1,7 @@
 # Next Actions — Holo Card Ultimate
 
-1. **Verify CI on the PoC commit:** npm install, 8 Node tests, TypeScript `tsc --noEmit`, Vite build; fix errors before claiming runnable build.
-2. **Verify GitHub Pages deployment.** The workflow is present, but owner may need Settings → Pages → GitHub Actions. Only share a live URL after successful deployment readback.
+1. **CI is green on PoC commit**: run 39405564584 verified npm install, 8 tests, TypeScript check, and Vite build. Re-run on future changes.
+2. **Verify GitHub Pages enablement/deployment.** First run 39405564569 failed because the Pages site was not configured. The workflow now attempts `actions/configure-pages` with `enablement: true`; if denied, Principal must enable Pages in Settings → Pages → GitHub Actions. Only share a URL after verified success.
 3. **Perform real WebGL2 browser smoke tests:** shader compilation, textures/masks alignment, three presets, independent sliders, pointer/keyboard/touch, front alpha and PNG 1200×1680 export pixel validation.
 4. **Request Principal visual acceptance** of all three presets, with snapshots at centered and ±15° poses.
 5. **Benchmark desktop/mobile** performance, DPR, memory, CORS and WebGL fallback behavior; choose budgets based on measurement.
