@@ -1,38 +1,17 @@
 # Current State — Holo Card Ultimate
 
-## Project
+- Project: https://github.com/mattamior/holo-card-ultimate (`main`); Agnir Core/profile 1.0, logical authoritative lineage unchanged.
+- Product: 闪卡究极版 is a collectible optical/holographic card authoring studio, **not an educational flashcard** tool.
+- User's priority GitHub visual references remain #1 `simeydotme/pokemon-cards-css`, #2 `simeydotme/pokemon-cards-151`, #6 `selop/pokebox`. Exclude earlier #3/#4/#5 as major design bases.
+- Research: `docs/research/visual-reference-source-audit.md`, architecture proposal: `docs/architecture/optical-engine-proposal.md` (not yet an approved permanent product stack).
+- User says ChatGPT Project root AGENTS.md locator is configured; independently fresh-context recovery verification still pending.
 
-- Canonical repository: https://github.com/mattamior/holo-card-ultimate
-- Product name: 闪卡究极版 / Holo Card Ultimate.
-- Agnir: v1.0.2 distribution, Core 1.0, repository-filesystem/1.0; selected authoritative continuity on main.
-- Current phase: **source-level research and architecture proposal**. There is **no implemented Web editor, optical shader prototype or tested export pipeline**.
-- ChatGPT Project persistent locator: Principal reported configuration complete; genuine independent fresh-session activation is not yet verified here.
+## New PoC v0.1 (2026-10-20)
 
-## Product scope
+Added lightweight TypeScript + Vite / Three.js WebGL2 renderer with original GLSL, an original SVG moth collectible-card illustration and independent background/character masks. Three sample presets: full rainbow foil, masked background foil + independent edge shine, cosmic micro-sparkle / etched contour. Sliders independently adjust four optical parameters; mouse/touch/keyboard pose input and current-view transparent 1200×1680 PNG export are implemented in source.
 
-闪卡 means angle-responsive optical-effect character collectible cards (holographic foil, reflective border, metallic, glitter, lenticular/flip combinations), NOT educational front/back memorization cards.
+This is a **material playground**, not a general asset-upload or mask-painting editor and not a true lenticular multi-view or physical-print tool. All artwork/shader code was independently produced for this PoC, not imported from the GPL projects or Pokémon.
 
-Goal: a high-fidelity, zero-code, Web collectible-card creation studio with editable material regions and projects, accurate motion-driven preview, and export.
+Local Node 22 `npm test`: **8/8 passed** (logic and shader source contracts). SVG rasterized/visually inspected. The local execution environment cannot reach npm registry, so production `npm run build`, TypeScript typechecking, WebGL runtime shader compilation, PNG browser readback, and FPS/mobile visual quality have **not** yet been independently verified. GitHub Actions workflows were added for validation and Pages publication; monitor their results and do not claim success before checks.
 
-## Preferred visual references and exclusions
-
-- Priority #1: https://github.com/simeydotme/pokemon-cards-css
-- Priority #2: https://github.com/simeydotme/pokemon-cards-151
-- Priority #6: https://github.com/selop/pokebox
-- Excluded from candidate shortlist: kongyo2/cards-css, simeydotme/hover-tilt, fito-cheol/Card-Animation-React.
-- Specialized other projects remain optional, subject to need and license review.
-
-## Technical research completed (2026-10-20)
-
-A **static, revision-pinned GitHub source audit** for #1/#2/#6 has been saved at docs/research/visual-reference-source-audit.md. It identifies CSS/GLSL foil synthesis, independent pointer/background/highlight signals, fine-grained glitter masks, off-axis projection, per-frame local card UV calculation, uniform registry and source-license constraints.
-
-A separate, explicitly **unapproved proposal** has been saved at docs/architecture/optical-engine-proposal.md. It recommends decoupling CardDocument, AssetStore, MaskEditor, InputAdapter, GPU MaterialEngine, Renderer, and Exporter.
-
-No on-device visual comparison, performance benchmarks, legal clearance, Shader integration or live browser output validation was performed. No framework or license/distribution strategy has been decided.
-
-## Source of authority
-
-- Agreed product decisions: .agnir/decisions.md (unchanged by this research).
-- Remaining tasks: .agnir/next-actions.md.
-- Source audit/proposal: docs/research/ and docs/architecture/.
-- Research receipt: .agnir/evidence/2026-10-20-three-visual-source-audit.md.
+See `docs/POC-README.md` and `.agnir/evidence/2026-10-20-holo-engine-poc-v01.md`.

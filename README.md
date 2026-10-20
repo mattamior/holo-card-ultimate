@@ -16,3 +16,19 @@ A web-based studio for creating holographic, lenticular, and interactive collect
 ## Agnir Project Instructions
 
 For durable Project continuity, start from root [`AGENTS.md`](AGENTS.md) and follow the canonical [`AGNIR.md`](AGNIR.md). This heading is only a backward-compatible locator.
+
+## Holo Engine Playground · PoC v0.1
+
+第一版原创闪卡材质原型已经进入源码仓库：Three.js（WebGL2）+ 自定义 GLSL，含三张效果预设、四组独立参数、鼠标/触控/键盘视角交互和当前视角 PNG 导出。
+
+![Original Lunara moth-themed collector card](src/assets/lunara.svg)
+
+**在本地试用：**
+
+```bash
+npm install --no-audit --no-fund
+npm test
+npm run dev
+```
+
+详细说明：[docs/POC-README.md](docs/POC-README.md)。GitHub Actions 包含构建及 Pages 发布工作流；Pages 必须按仓库设置启用后再确认线上 URL。此版本不是成品编辑器，也不等于已经完成浏览器视觉验收。

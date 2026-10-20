@@ -25,3 +25,7 @@
 
 - Agnir `1.0.2` distribution, Core `1.0`, repository/filesystem profile `1.0` for this new Project.
 - Canonical Project identity and logical lineage remain stable independently of the main-branch Git ref and commit receipts.
+
+## Prototype renderer direction (2026-10-20)
+
+The Principal acknowledged the technical distinction between WebGL/GLSL and Three.js + GLSL and instructed continuation. The **PoC** uses WebGL2 + original GLSL via Three.js for scene/texture/camera management, plus Vite/TypeScript. This is a bounded prototype choice, **not** final product/editor framework approval. The full editor, license, and multi-view lenticular scope remain undecided. No Pokémon art, GPL CSS, or Pokebox assets/source were copied into the PoC.

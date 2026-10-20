@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0a0c11" />
+    <meta name="description" content="闪卡究极版光学特效实验台：实时体验角度响应镭射、独立闪边和多层闪粉材质。" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Holo Card Ultimate — 光学材质实验台</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <a class="brand" href="#" aria-label="闪卡究极版首页">
+          <span class="brand-symbol" aria-hidden="true"><span></span><span></span><span></span><span></span></span>
+          <span class="brand-text">HOLO<span class="brand-slim">/</span>CARD <strong>ULTIMATE</strong></span>
+        </a>
+        <div class="header-middle"><span class="header-sparkle">✦</span> OPTICAL MATERIAL LABORATORY <span class="header-sparkle">✦</span></div>
+        <div class="header-end"><span class="status-dot"></span><span>PROTOTYPE</span><span class="header-version">V 0.1</span></div>
+      </header>
+
+      <main class="workspace">
+        <section class="intro-block" aria-labelledby="page-heading">
+          <p class="eyebrow"><span class="eyebrow-rule"></span> EXPERIMENT NO. 001 / MATERIAL STUDIES</p>
+          <h1 id="page-heading">让光，<em>有形可循。</em></h1>
+          <p class="intro-desc">不只是旋转一张图片。让每一层镭射、闪边与细碎星光，都随你的视角发生变化。</p>
+          <div class="intro-index">01 <span class="slash">/</span> 03 <span class="note-index">MATERIAL PRESETS</span></div>
+        </section>
+
+        <section class="stage-panel" aria-label="可交互闪卡预览">
+          <div class="stage-backdrop"></div>
+          <div class="stage-index stage-index-left">HOLOGRAPHIC STUDIES<br/>LIVE RENDER / WEBGL2</div>
+          <div class="stage-index stage-index-right">REFLECTION INDEX<br/>HCU-001 · TEST SUBJECT</div>
+          <div class="orbit orbit-outer"></div><div class="orbit orbit-inner"></div>
+          <div class="crosshair top-left">+</div><div class="crosshair top-right">+</div>
+          <div class="crosshair bottom-left">+</div><div class="crosshair bottom-right">+</div>
+          <div id="canvasMount" class="canvas-mount" role="img" aria-label="三维交互式镭射收藏卡画面">
+            <div id="webglFallback" class="fallback-message" hidden>
+              <strong>无法启动 WebGL2</strong><span>请使用支持 WebGL2 的现代浏览器，或启用硬件加速。</span>
+            </div>
+          </div>
+          <div class="stage-underlay"><span>↗</span> DRAG / MOVE TO REFLECT</div>
+          <div class="stage-hint">移动鼠标或触摸，观察真实的角度响应</div>
+          <div class="angle-meter"><span class="meter-label">TILT VECTOR</span><output id="angleValue">X +0.0° · Y +0.0°</output></div>
+        </section>
+
+        <aside class="control-panel" aria-label="光学效果控制面板">
+          <div class="panel-topline"><span>MATERIAL CONTROL</span><span>↗ 001</span></div>
+          <h2>调制<span class="serif-star">✳</span>光感</h2>
+          <p class="panel-description">三种独立材质配方，同一张原画。选择效果并调整光学参数。</p>
+          <div class="panel-divider"></div>
+          <div class="control-heading"><span>01 / 光学配方</span><span class="tiny-right">PRESETS</span></div>
+          <div class="preset-list" role="group" aria-label="材质预设">
+            <button class="preset-option is-selected" type="button" data-preset="aurora" aria-pressed="true">
+              <span class="preset-swatch swatch-aurora"></span><span class="preset-name"><strong>全息虹彩</strong><small>FULL SPECTRUM FOIL</small></span><span class="preset-number">01</span>
+            </button>
+            <button class="preset-option" type="button" data-preset="reverse" aria-pressed="false">
+              <span class="preset-swatch swatch-reverse"></span><span class="preset-name"><strong>局部镭射 + 闪边</strong><small>REVERSE HOLO / BORDER</small></span><span class="preset-number">02</span>
+            </button>
+            <button class="preset-option" type="button" data-preset="cosmos" aria-pressed="false">
+              <span class="preset-swatch swatch-cosmos"></span><span class="preset-name"><strong>星砂浮雕</strong><small>COSMIC ETCH / GLITTER</small></span><span class="preset-number">03</span>
+            </button>
+          </div>
+          <div class="panel-divider preset-divider"></div>
+          <div class="control-heading"><span>02 / 材质参数</span><button id="resetControls" class="text-button" type="button">↺ 还原</button></div>
+          <div class="slider-list">
+            <label class="control-row" for="foil"><span class="control-text"><strong>镭射强度</strong><small>FOIL INTENSITY</small></span><output id="foilOutput" for="foil">78%</output></label>
+            <input id="foil" type="range" min="0" max="100" step="1" value="78" />
+            <label class="control-row" for="glare"><span class="control-text"><strong>镜面高光</strong><small>SPECULAR GLARE</small></span><output id="glareOutput" for="glare">55%</output></label>
+            <input id="glare" type="range" min="0" max="100" step="1" value="55" />
+            <label class="control-row" for="glitter"><span class="control-text"><strong>星点密度</strong><small>GLITTER PARTICLES</small></span><output id="glitterOutput" for="glitter">48%</output></label>
+            <input id="glitter" type="range" min="0" max="100" step="1" value="48" />
+            <label class="control-row" for="border"><span class="control-text"><strong>闪边反射</strong><small>FOIL BORDER</small></span><output id="borderOutput" for="border">66%</output></label>
+            <input id="border" type="range" min="0" max="100" step="1" value="66" />
+          </div>
+          <div class="panel-divider export-divider"></div>
+          <div class="control-heading"><span>03 / 导出预览</span><span class="tiny-right">PNG · 1200 × 1680</span></div>
+          <button class="export-button" id="exportButton" type="button"><span>保存此刻的光影</span><span class="export-arrow">↗</span></button>
+          <p class="export-note">导出当前观察角度的透明背景卡片 PNG。动态镭射需在浏览器中体验。</p>
+          <output id="statusMessage" class="status-message" aria-live="polite"></output>
+        </aside>
+      </main>
+
+      <footer class="footer"><span>© 2026 HOLO CARD ULTIMATE / ORIGINAL RESEARCH ART</span><span>CRAFTED WITH WEBGL2 + CUSTOM GLSL</span><span>MOVE LIGHT, NOT JUST PIXELS <span class="footer-star">✧</span></span></footer>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
