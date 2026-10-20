@@ -6,7 +6,7 @@ import { join } from 'node:path';
 
 const PORT = 4173;
 const baseUrl = `http://127.0.0.1:${PORT}/holo-card-ultimate/`;
-const vite = spawn('npm', ['run', 'preview', '--', '--host', '127.0.0.1', '--port', String(PORT)], { stdio: 'pipe' });
+const vite = spawn(process.execPath, ['node_modules/vite/bin/vite.js', 'preview', '--host', '127.0.0.1', '--port', String(PORT)], { stdio: 'ignore' });
 let browser;
 let page;
 
