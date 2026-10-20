@@ -44,3 +44,7 @@ The CSS/GLSL/assets in this proof of concept are an independent implementation. 
 ## Project continuity
 
 Work checkpoints are captured in the repository-owned `.agnir/` selected lineage, not exclusively in chat memory. Review `AGENTS.md` before continuing Project work.
+
+## Browser smoke verification
+
+GitHub CI additionally uses Playwright + Chromium/SwiftShader to load the production preview and exercise the real WebGL2 code path. It checks canvas readiness, effect switching, sliders, angular movement, and PNG signature / pixel dimensions. Run after build: `npx playwright install chromium && node tests/browser-smoke.mjs`. CI screenshots and a captured-pose PNG are uploaded as artifacts if produced. This test is separate from human optical quality acceptance.

@@ -17,3 +17,5 @@ Local Node 22 `npm test`: **8/8 passed** (logic and shader source contracts). SV
 See `docs/POC-README.md` and `.agnir/evidence/2026-10-20-holo-engine-poc-v01.md`.
 
 GitHub Pages initial workflow run [39405564569](https://github.com/mattamior/holo-card-ultimate/actions/runs/39405564569) failed at configure-pages: Pages site not found. A subsequent workflow update attempts configure-pages enablement; do not claim live deployment until successful status/readback.
+
+A real-browser CI smoke harness has been added to the verification workflow (Playwright Chromium/SwiftShader). It checks actual WebGL2 renderer initialization, preset switching, slider binding, pointer angle response and exported PNG dimensions. This test is **pending first run**, not yet a validation receipt.
