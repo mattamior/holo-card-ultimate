@@ -1,8 +1,8 @@
 # Next Actions — Holo Card Ultimate
 
 1. **CI is green on PoC commit**: run 39405564584 verified npm install, 8 tests, TypeScript check, and Vite build. Re-run on future changes.
-2. **Verify GitHub Pages enablement/deployment.** First run 39405564569 failed because the Pages site was not configured. The workflow now attempts `actions/configure-pages` with `enablement: true`; if denied, Principal must enable Pages in Settings → Pages → GitHub Actions. Only share a URL after verified success.
-3. **Verify the new Playwright real-browser smoke workflow**, then perform manual WebGL2 visual QA: shader compilation, textures/masks alignment, three presets, independent sliders, pointer/keyboard/touch, front alpha and PNG 1200×1680 export pixel validation.
+2. **Verify GitHub Pages enablement/deployment.** First run 39405564569 failed because the Pages site was not configured. Latest attempt failed with `Resource not accessible by integration` at configure-pages. Principal must enable Pages in Settings → Pages → GitHub Actions, then rerun publishing. Only share a URL after verified success.
+3. **Browser smoke passed** on run 39406598658; next perform manual WebGL2 visual QA: shader compilation, textures/masks alignment, three presets, independent sliders, pointer/keyboard/touch, front alpha and PNG 1200×1680 export pixel validation.
 4. **Request Principal visual acceptance** of all three presets, with snapshots at centered and ±15° poses.
 5. **Benchmark desktop/mobile** performance, DPR, memory, CORS and WebGL fallback behavior; choose budgets based on measurement.
 6. **Commit npm package-lock** once a networked npm install is available and switch CI to `npm ci` for reproducibility.

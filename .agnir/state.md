@@ -16,6 +16,6 @@ Local Node 22 `npm test`: **8/8 passed** (logic and shader source contracts). SV
 
 See `docs/POC-README.md` and `.agnir/evidence/2026-10-20-holo-engine-poc-v01.md`.
 
-GitHub Pages initial workflow run [39405564569](https://github.com/mattamior/holo-card-ultimate/actions/runs/39405564569) failed at configure-pages: Pages site not found. A subsequent workflow update attempts configure-pages enablement; do not claim live deployment until successful status/readback.
+GitHub Pages initial workflow run [39405564569](https://github.com/mattamior/holo-card-ultimate/actions/runs/39405564569) failed at configure-pages: Pages site not found. Latest Pages attempt [39406598507](https://github.com/mattamior/holo-card-ultimate/actions/runs/39406598507) failed at configure-pages: Create Pages site failed (Resource not accessible by integration). Principal must enable Pages in Settings → Pages → GitHub Actions and rerun publication; no live Pages URL verified.
 
-A real-browser CI smoke harness has been added to the verification workflow (Playwright Chromium/SwiftShader). It checks actual WebGL2 renderer initialization, preset switching, slider binding, pointer angle response and exported PNG dimensions. This test is **pending first run**, not yet a validation receipt.
+A real-browser CI smoke harness (Playwright Chromium/SwiftShader) **passed** on commit 8861a6cd5d696522bd154d691512242cd5a4d4cc: [validation run 39406598658](https://github.com/mattamior/holo-card-ultimate/actions/runs/39406598658) succeeded, including actual WebGL2 readiness, preset switching, slider binding, angular response and PNG dimension checks. This is automated smoke validation, not human visual acceptance or hardware performance testing.
