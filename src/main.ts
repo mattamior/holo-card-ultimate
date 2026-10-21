@@ -11,7 +11,7 @@ if (!mount || !fallback || !output || !status || !exportButton) throw new Error(
 
 let renderer: CardRenderer | null = null;
 let activePreset: OpticalPreset = 'aurora';
-const controls = ['foil', 'glare', 'glitter', 'border'] as const;
+const controls = ['foil', 'glare', 'glitter', 'border', 'metal', 'detail'] as const;
 
 function getControls(): OpticalControls {
   const data = {} as OpticalControls;

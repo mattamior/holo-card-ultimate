@@ -49,6 +49,12 @@ try {
   assert.equal(await page.locator('[data-preset="reverse"]').getAttribute('aria-pressed'), 'true');
   await page.locator('[data-preset="cosmos"]').click();
   assert.equal(await page.locator('[data-preset="cosmos"]').getAttribute('aria-pressed'), 'true');
+  await page.locator('[data-preset="retro"]').click();
+  assert.equal(await page.locator('[data-preset="retro"]').getAttribute('aria-pressed'), 'true');
+  for (const id of ['metal','detail']) {
+    await page.locator(`#${id}`).evaluate((el) => { el.value = '91'; el.dispatchEvent(new Event('input', { bubbles: true })); });
+    assert.equal(await page.locator(`#${id}Output`).textContent(), '91%');
+  }
   await page.locator('#glitter').evaluate((el) => { el.value = '96'; el.dispatchEvent(new Event('input', { bubbles: true })); });
   assert.equal(await page.locator('#glitterOutput').textContent(), '96%');
   const stage = page.locator('#canvasMount');
@@ -75,7 +81,7 @@ try {
   assert.equal(png.readUInt32BE(20), 1680, 'Exported height must be 1680');
   assert.ok(png.length > 50000, `PNG unexpectedly small (${png.length})`);
   assert.deepEqual(pageErrors, [], 'No runtime errors after export');
-  console.log('PASS: WebGL2 card canvas, 3 presets, uniform sliders, angle response, and 1200x1680 PNG export');
+  console.log('PASS: WebGL2 canvas, 4 presets incl retro artwork, six uniform sliders, angle response, and 1200x1680 PNG export');
 } finally {
   await page?.close();
   await browser?.close();

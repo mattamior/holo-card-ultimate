@@ -1,10 +1,11 @@
 /** Runtime math, independent of Three.js and browser APIs so it can be tested offline. */
-export const DEFAULTS = Object.freeze({ foil: 78, glare: 55, glitter: 48, border: 66 });
+export const DEFAULTS = Object.freeze({ foil: 78, glare: 55, glitter: 48, border: 66, metal: 70, detail: 75 });
 
 export const PRESETS = Object.freeze({
-  aurora: Object.freeze({ key: 'aurora', label: '全息虹彩', foil: 78, glare: 55, glitter: 48, border: 66, mode: 0 }),
-  reverse: Object.freeze({ key: 'reverse', label: '局部镭射 + 闪边', foil: 70, glare: 42, glitter: 22, border: 86, mode: 1 }),
-  cosmos: Object.freeze({ key: 'cosmos', label: '星砂浮雕', foil: 74, glare: 66, glitter: 82, border: 74, mode: 2 }),
+  aurora: Object.freeze({ key: 'aurora', label: '全息虹彩', foil: 82, glare: 70, glitter: 40, border: 72, metal: 75, detail: 75, mode: 0 }),
+  reverse: Object.freeze({ key: 'reverse', label: '局部镭射 + 闪边', foil: 82, glare: 63, glitter: 22, border: 94, metal: 68, detail: 86, mode: 1 }),
+  cosmos: Object.freeze({ key: 'cosmos', label: '星砂浮雕', foil: 72, glare: 78, glitter: 92, border: 82, metal: 58, detail: 92, mode: 2 }),
+  retro: Object.freeze({ key: 'retro', label: '经典碎闪 · 雷霆兽', foil: 95, glare: 82, glitter: 88, border: 96, metal: 88, detail: 94, mode: 3 }),
 });
 
 export const clamp = (value, low, high) => Math.max(low, Math.min(high, value));
@@ -41,7 +42,7 @@ export function linearResponse(current, target, elapsedSeconds, responsiveness =
 
 export function presetSettings(name) {
   const p = PRESETS[name] ?? PRESETS.aurora;
-  return { foil: p.foil, glare: p.glare, glitter: p.glitter, border: p.border };
+  return { foil: p.foil, glare: p.glare, glitter: p.glitter, border: p.border, metal: p.metal, detail: p.detail };
 }
 
 /** Sanitizes UI values before passing them to GPU uniforms. */

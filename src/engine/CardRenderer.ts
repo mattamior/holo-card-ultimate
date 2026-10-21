@@ -20,12 +20,15 @@ import {
 import artUrl from '../assets/lunara.svg?url';
 import bgMaskUrl from '../assets/background-mask.svg?url';
 import characterMaskUrl from '../assets/character-mask.svg?url';
+import retroArtUrl from '../assets/retro-lynx.svg?url';
+import retroBgMaskUrl from '../assets/retro-background-mask.svg?url';
+import retroCharacterMaskUrl from '../assets/retro-character-mask.svg?url';
 import vertexShader from './card.vert.glsl?raw';
 import fragmentShader from './card.frag.glsl?raw';
 import { linearResponse, opticalState } from '../core-optics.js';
 
-export type OpticalPreset = 'aurora' | 'reverse' | 'cosmos';
-export type ControlKey = 'foil' | 'glare' | 'glitter' | 'border';
+export type OpticalPreset = 'aurora' | 'reverse' | 'cosmos' | 'retro';
+export type ControlKey = 'foil' | 'glare' | 'glitter' | 'border' | 'metal' | 'detail';
 export type OpticalControls = Record<ControlKey, number>;
 
 type ShaderUniforms = {
@@ -39,6 +42,8 @@ type ShaderUniforms = {
   uGlare: { value: number };
   uGlitter: { value: number };
   uBorder: { value: number };
+  uMetal: { value: number };
+  uDetail: { value: number };
   uMode: { value: number };
   uSeed: { value: number };
 };
@@ -74,6 +79,8 @@ export class CardRenderer {
   private material: ShaderMaterial;
   private mesh: Mesh;
   private textures: Texture[] = [];
+  private baseTextures: Texture[] = [];
+  private retroTextures: Texture[] = [];
   private resizeObserver: ResizeObserver;
   private animationFrame = 0;
   private clock = new Clock();
@@ -81,10 +88,10 @@ export class CardRenderer {
   private targetPointer = { x: 0.5, y: 0.5 };
   private smooth = { x: 0.5, y: 0.5 };
   private lastTilt = { x: 0, y: 0 };
-  private controls: OpticalControls = { foil: 0.78, glare: 0.55, glitter: 0.48, border: 0.66 };
+  private controls: OpticalControls = { foil: 0.78, glare: 0.55, glitter: 0.48, border: 0.66, metal: 0.70, detail: 0.75 };
   onTilt?: (x: number, y: number) => void;
 
-  constructor(private mount: HTMLElement, artwork: Texture, backgroundMask: Texture, characterMask: Texture) {
+  constructor(private mount: HTMLElement, artwork: Texture, backgroundMask: Texture, characterMask: Texture, retroArtwork: Texture, retroBackground: Texture, retroCharacter: Texture) {
     this.canvas = document.createElement('canvas');
     this.canvas.className = 'three-canvas';
     this.canvas.setAttribute('aria-hidden', 'true');
@@ -93,7 +100,9 @@ export class CardRenderer {
     this.renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
     this.renderer.outputColorSpace = SRGBColorSpace;
     this.renderer.setClearColor(0x000000, 0);
-    this.textures = [artwork, backgroundMask, characterMask];
+    this.baseTextures = [artwork, backgroundMask, characterMask];
+    this.retroTextures = [retroArtwork, retroBackground, retroCharacter];
+    this.textures = [...this.baseTextures, ...this.retroTextures];
     this.uniforms = {
       uArt: { value: artwork },
       uBackgroundMask: { value: backgroundMask },
@@ -105,6 +114,8 @@ export class CardRenderer {
       uGlare: { value: this.controls.glare },
       uGlitter: { value: this.controls.glitter },
       uBorder: { value: this.controls.border },
+      uMetal: { value: this.controls.metal },
+      uDetail: { value: this.controls.detail },
       uMode: { value: 0 },
       uSeed: { value: 7.3 },
     };
@@ -132,8 +143,11 @@ export class CardRenderer {
       loadTexture(artUrl, true),
       loadTexture(bgMaskUrl),
       loadTexture(characterMaskUrl),
+      loadTexture(retroArtUrl, true),
+      loadTexture(retroBgMaskUrl),
+      loadTexture(retroCharacterMaskUrl),
     ]);
-    return new CardRenderer(mount, textures[0]!, textures[1]!, textures[2]!);
+    return new CardRenderer(mount, textures[0]!, textures[1]!, textures[2]!, textures[3]!, textures[4]!, textures[5]!);
   }
 
   private distanceForAspect(aspect: number): number {
@@ -155,7 +169,11 @@ export class CardRenderer {
   }
 
   setPreset(preset: OpticalPreset): void {
-    this.uniforms.uMode.value = preset === 'reverse' ? 1 : preset === 'cosmos' ? 2 : 0;
+    this.uniforms.uMode.value = preset === 'reverse' ? 1 : preset === 'cosmos' ? 2 : preset === 'retro' ? 3 : 0;
+    const textures = preset === 'retro' ? this.retroTextures : this.baseTextures;
+    this.uniforms.uArt.value = textures[0]!;
+    this.uniforms.uBackgroundMask.value = textures[1]!;
+    this.uniforms.uCharacterMask.value = textures[2]!;
   }
 
   setControls(values: OpticalControls): void {
@@ -164,6 +182,8 @@ export class CardRenderer {
     this.uniforms.uGlare.value = values.glare;
     this.uniforms.uGlitter.value = values.glitter;
     this.uniforms.uBorder.value = values.border;
+    this.uniforms.uMetal.value = values.metal;
+    this.uniforms.uDetail.value = values.detail;
   }
 
   private applyPose(dt: number): void {

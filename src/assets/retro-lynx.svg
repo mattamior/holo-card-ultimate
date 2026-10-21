@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1008" viewBox="0 0 720 1008">
+<defs>
+  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#681633"/><stop offset=".38" stop-color="#271253"/><stop offset="1" stop-color="#0b2d4e"/></linearGradient>
+  <linearGradient id="gold" x2="1" y2="1"><stop stop-color="#fff8bd"/><stop offset=".22" stop-color="#ffb53d"/><stop offset=".50" stop-color="#f6f1bf"/><stop offset=".72" stop-color="#a26020"/><stop offset="1" stop-color="#ffe989"/></linearGradient>
+  <linearGradient id="orange" x2="0" y2="1"><stop stop-color="#fff0a4"/><stop offset=".40" stop-color="#ffc74b"/><stop offset=".72" stop-color="#ec713b"/><stop offset="1" stop-color="#8b2365"/></linearGradient>
+  <linearGradient id="purple" x2="1" y2="1"><stop stop-color="#f6a2cf"/><stop offset=".5" stop-color="#d24189"/><stop offset="1" stop-color="#5d1c7d"/></linearGradient>
+  <linearGradient id="eye" x2="1" y2="1"><stop stop-color="#80ffff"/><stop offset=".6" stop-color="#24bcde"/><stop offset="1" stop-color="#194e9e"/></linearGradient>
+  <radialGradient id="glow"><stop stop-color="#fff5a0" stop-opacity=".65"/><stop offset=".45" stop-color="#ff387b" stop-opacity=".22"/><stop offset="1" stop-color="#23153f" stop-opacity="0"/></radialGradient>
+  <pattern id="dots" width="18" height="18" patternUnits="userSpaceOnUse"><circle cx="3" cy="4" r="1.6" fill="#ebf1ff" opacity=".15"/></pattern>
+  <clipPath id="card"><rect width="720" height="1008" rx="26"/></clipPath>
+</defs>
+<g clip-path="url(#card)">
+ <rect width="720" height="1008" fill="url(#bg)"/>
+ <rect width="720" height="1008" fill="url(#dots)"/>
+ <path d="M0 170L720 80V300L0 430Z" fill="#e72f63" opacity=".35"/>
+ <path d="M0 630L720 350V615L0 895Z" fill="#31a0dd" opacity=".28"/>
+ <circle cx="360" cy="490" r="350" fill="url(#glow)"/>
+ <g stroke="#ffe5aa" stroke-width="7" fill="none" opacity=".55">
+ <path d="M360 132L360 835M36 475L685 475M107 250L613 750M612 240L106 753"/>
+ </g>
+ <path d="M360 179L398 332L585 245L488 403L678 451L494 508L580 714L407 628L359 827L313 627L136 720L228 508L39 454L235 407L140 235L318 330Z" fill="#fe5375" stroke="#ffde82" stroke-width="5" opacity=".6"/>
+ <path d="M360 209L394 334L553 266L471 410L634 454L465 495L548 674L400 607L360 770L316 605L168 669L250 495L91 454L250 413L177 274L326 333Z" fill="#242869" stroke="#7be8ff" stroke-width="3"/>
+ <rect x="18" y="18" width="684" height="972" rx="20" fill="none" stroke="#fcf1d0" stroke-width="17"/>
+ <rect x="37" y="38" width="646" height="932" rx="14" fill="none" stroke="#ce3182" stroke-width="12"/>
+ <rect x="51" y="52" width="618" height="903" rx="8" fill="none" stroke="url(#gold)" stroke-width="8"/>
+ <g fill="#fff0b1" stroke="#a74776" stroke-width="2">
+  <path d="M76 100h38v16H76zM606 100h38v16h-38z"/><path d="M76 866h38v16H76zM606 866h38v16h-38z"/>
+ </g>
+ <path d="M75 105L645 105L622 200L96 200Z" fill="#20184d" stroke="#f6da71" stroke-width="7"/>
+ <path d="M95 129L625 129" stroke="#8be9fa" stroke-width="3"/>
+ <text x="360" y="170" font-family="Arial Black,system-ui,sans-serif" font-weight="900" font-size="54" fill="#fff4aa" text-anchor="middle" letter-spacing="2">THUNDER LYNX</text>
+ <text x="360" y="198" font-family="Arial,system-ui,sans-serif" font-weight="bold" font-size="17" text-anchor="middle" fill="#7cf6f8" letter-spacing="5">电 光 幻 兽 · 07</text>
+ <g stroke-linejoin="round" stroke-linecap="round">
+  <!-- independently drawn chibi thunder-lynx silhouette -->
+  <path d="M239 335L205 218L314 265L354 319L396 265L519 214L486 342L507 400L477 487L528 610L499 710L430 742L290 742L214 690L199 604L246 488L217 409Z" fill="#252048" stroke="#fde69b" stroke-width="18"/>
+  <path d="M246 334L228 251L306 293L330 362Z" fill="url(#purple)" stroke="#ffc657" stroke-width="8"/>
+  <path d="M477 335L493 249L413 293L392 359Z" fill="url(#purple)" stroke="#ffc657" stroke-width="8"/>
+  <!-- body and bright zigzag tail -->
+  <path d="M440 654Q543 603 571 663L533 678L596 713L541 730L569 773Q483 773 435 715Z" fill="#ffc34d" stroke="#412451" stroke-width="11"/>
+  <path d="M271 575Q211 640 246 703L292 734L438 732L485 687Q503 625 438 565Z" fill="url(#orange)" stroke="#2a204b" stroke-width="14"/>
+  <path d="M302 584Q364 650 421 585L406 701L359 737L307 700Z" fill="#fff1c4"/>
+  <path d="M349 633L389 668L363 678L389 712L334 676L354 663L331 644Z" fill="#ffed58" stroke="#e15647" stroke-width="4"/>
+  <path d="M248 373Q360 278 474 373Q498 450 466 536Q421 588 365 597Q288 575 245 523Q220 444 248 373Z" fill="url(#orange)" stroke="#2a204b" stroke-width="16"/>
+  <path d="M262 390L326 414L357 392L392 412L466 390L446 481L409 510L310 510L268 466Z" fill="#ffe9a0" opacity=".74"/>
+  <path d="M274 433Q314 410 341 431L334 472Q298 500 276 469Z" fill="#fef7d3" stroke="#3a285a" stroke-width="8"/>
+  <path d="M383 431Q418 407 447 432L442 470Q408 501 386 472Z" fill="#fef7d3" stroke="#3a285a" stroke-width="8"/>
+  <ellipse cx="309" cy="446" rx="17" ry="26" fill="url(#eye)" stroke="#3a285a" stroke-width="5"/>
+  <ellipse cx="415" cy="446" rx="17" ry="26" fill="url(#eye)" stroke="#3a285a" stroke-width="5"/>
+  <ellipse cx="314" cy="436" rx="5" ry="9" fill="white"/>
+  <ellipse cx="420" cy="436" rx="5" ry="9" fill="white"/>
+  <path d="M339 492Q362 479 384 494L363 514Z" fill="#7b3169" stroke="#4c2250" stroke-width="4"/>
+  <path d="M359 514Q347 533 327 525M366 515Q378 532 397 524" fill="none" stroke="#58335a" stroke-width="5"/>
+  <path d="M236 491L289 504M232 521L287 527M485 490L436 505M493 518L440 529" fill="none" stroke="#fdf1cf" stroke-width="4"/>
+  <path d="M238 649Q225 703 270 740Q305 745 314 723L302 652Z" fill="#ffb15a" stroke="#412451" stroke-width="10"/>
+  <path d="M478 652Q499 708 448 741Q415 748 405 722L420 656Z" fill="#ffb15a" stroke="#412451" stroke-width="10"/>
+  <path d="M278 711L291 725M431 720L442 709" stroke="#fff6ca" stroke-width="6"/>
+ </g>
+ <g stroke="#ffed9b" stroke-linejoin="round" fill="#fff25f">
+  <path d="M153 376L172 319L138 339L149 285L108 367L144 354Z" stroke-width="6"/>
+  <path d="M547 389L590 331L563 335L588 279L529 354L556 354Z" stroke-width="6"/>
+  <path d="M118 632L148 582L120 586L143 535L94 610L124 605Z" stroke-width="5"/>
+  <path d="M565 607L604 563L580 569L608 528L556 584L581 576Z" stroke-width="5"/>
+ </g>
+ <path d="M75 783L645 783L625 909L94 909Z" fill="#211847" stroke="#ffde83" stroke-width="9"/>
+ <path d="M91 797L628 797" stroke="#6ef4fd" stroke-width="3"/>
+ <text x="360" y="842" font-family="Arial Black,system-ui,sans-serif" font-size="32" font-weight="900" text-anchor="middle" letter-spacing="4" fill="#f7e5a2">⚡ ELECTRIC BEAST ⚡</text>
+ <text x="360" y="879" font-family="Arial,system-ui,sans-serif" font-size="19" font-weight="bold" text-anchor="middle" fill="#9efaff" letter-spacing="3">HOLO HERO · CLASSIC 1999</text>
+ <text x="360" y="928" font-family="Arial,system-ui,sans-serif" font-size="15" font-weight="bold" text-anchor="middle" letter-spacing="3" fill="#fff3b1">ULTRA RARE  ✦  HCU-007/100</text>
+ <text x="104" y="960" fill="#ffdb8b" font-family="Arial,system-ui,sans-serif" font-size="11" letter-spacing="2">ORIGINAL CHARACTER</text>
+ <text x="616" y="960" text-anchor="end" fill="#ffdb8b" font-family="Arial,system-ui,sans-serif" font-size="11">© HCU</text>
+</g>
+</svg>

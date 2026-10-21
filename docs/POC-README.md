@@ -1,4 +1,4 @@
-# Holo Engine Playground v0.1
+# Holo Engine Playground v0.2
 
 A zero-asset-download holographic collectible-card material proof of concept for **闪卡究极版 / Holo Card Ultimate**. The original fictional card illustration, masks, shader, and UI are authored in this repository. It is not a Pokémon reproduction.
 
@@ -16,13 +16,14 @@ Visit the local Vite URL. For production: `npm test && npm run build && npm run 
 1. **全息虹彩 / Full spectrum foil** — full-card rainbow interference simulation with an independently moving specular hotspot.
 2. **局部镭射 + 闪边 / Reverse holo** — background-region mask leaves the central illustrated character unfoiled, while the rim has its own spectrum and strength.
 3. **星砂浮雕 / Cosmic etch** — masked foil and sparse reproducible micro-sparkles plus contour response from a separate character silhouette mask.
+4. **经典碎闪 · 雷霆兽 / Retro stamped foil** — a second, independently illustrated original 1990s snack-pack-style fictional character card, using granular foil, metallic border, star-shaped micro-emboss marks and halftone texture.
 
-Move a pointer across the card area (touch works). Focus the preview and use the arrow keys or `Home` for keyboard navigation. Adjust the four material sliders, switch presets, and click **保存此刻的光影** for a 1200×1680 transparent PNG at the current smoothed angle.
+Move a pointer across the card area (touch works). Focus the preview and use the arrow keys or `Home` for keyboard navigation. Adjust the six material sliders, switch presets, and click **保存此刻的光影** for a 1200×1680 transparent PNG at the current smoothed angle.
 
 ## Technical implementation
 
-- **Rendering**: Three.js / WebGL2 / custom GLSL ShaderMaterial. The GLSL file is authored for this repository. No GPL third-party shader implementation was copied.
-- **Data**: The original `src/assets/lunara.svg` image and two independently drawn SVG masks; masks are grayscale textures sampled by GLSL.
+- **Rendering**: Three.js / WebGL2 / custom GLSL ShaderMaterial. v0.2 uses angle-selective narrow spectral flash bands, fwidth-antialiased line grating, a mask-gated metallic undercoat, sharper moving highlights, independent rim reflection and star-stamped foil for the retro material. The GLSL file is authored for this repository. No GPL third-party shader implementation was copied.
+- **Data**: The original `src/assets/lunara.svg` and `src/assets/retro-lynx.svg` illustrations and independent SVG masks for each; masks are grayscale textures sampled by GLSL.
 - **Interaction**: `src/core-optics.js` maps UI pointer coordinates to independent card tilt, highlight center, and foil phase. The math is testable without WebGL.
 - **Controls**: `src/main.ts` owns one UI control model and sets Shader uniforms.
 - **Export**: `CardRenderer.exportPng()` uses a dedicated WebGL render target, flips readback scanlines, and serializes a transparent PNG. This represents one captured view, **not a moving holographic print**.
@@ -48,3 +49,7 @@ Work checkpoints are captured in the repository-owned `.agnir/` selected lineage
 ## Browser smoke verification
 
 GitHub CI additionally uses Playwright + Chromium/SwiftShader to load the production preview and exercise the real WebGL2 code path. It checks canvas readiness, effect switching, sliders, angular movement, and PNG signature / pixel dimensions. Run after build: `npx playwright install chromium && node tests/browser-smoke.mjs`. CI screenshots and a captured-pose PNG are uploaded as artifacts if produced. This test is separate from human optical quality acceptance.
+
+## v0.2 material quality direction
+
+This is a deliberate improvement over the overly broad, washed-out rainbow wash in v0.1. Two new independently controllable uniforms are `uMetal` (metallic undercoat) and `uDetail` (grating density/contrast). A fourth `retro` preset switches the artwork and masks to an original electric-lynx card inspired by the format and visual language of vintage collectible snack-pack inserts without copying a branded card. Material details and subjective authenticity **must be reviewed in a browser**; automated green tests do not imply an 8.5/10 optical-quality rating. The snapshot export remains one 1200×1680 PNG, not real lenticular foil printing.
