@@ -7,3 +7,7 @@
 - Pages unresolved by prior permission, but not relevant to portable HTML.
 
 - Packaging CI attempt 39565042966 failed in `npm run package:standalone`. Local reconstruction identified `String.prototype.replace()` interpreting `$&` tokens in minified Three.js when inserted as a replacement string. Switched inline CSS/JS replacement to callback form; must re-run verification.
+
+- Corrected packaging commit 6efcea67a4110c7f29568be5e214dda720c37c82: [CI run 39565274685](https://github.com/mattamior/holo-card-ultimate/actions/runs/39565274685) completed SUCCESS. The bundle script generated `dist/holo-card-ultimate-standalone.html` (545304 bytes) and the subsequent Playwright WebGL2 smoke passed.
+- Downloaded final run artifact `holographic-playground`, extracted standalone output, validated inline JS syntax with `node --check`, confirmed no `/holo-card-ultimate/assets/` or TypeScript entry URLs remained. SHA-256 of the user-facing output: `146b9ec5a0cdc21424ab9aa08a22f01e002bab8e1fa99ee025a77805c69ce963`.
+- The self-contained HTML file is a distributable artifact supplied in conversation, not hosted through Pages. Local browser restrictions prevented `file://` GPU execution confirmation; do not claim it was graphically verified offline.
