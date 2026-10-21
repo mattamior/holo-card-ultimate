@@ -27,3 +27,7 @@ Principal accepted the v0.1 review goal: improve optical realism (narrow angle-s
 ## v0.2 runtime check and portable packaging (2026-10-21)
 
 Commit cc1b7c645eb829ac4005a1d40ed88bb0f770d128 passed Node tests, TypeScript/Vite production build and Chromium/SwiftShader WebGL2 browser smoke in [CI run 39564398859](https://github.com/mattamior/holo-card-ultimate/actions/runs/39564398859), including original retro card asset/preset, six sliders and PNG export. Actual human visual-quality score and mobile GPU benchmarks remain pending. A reproducible single-HTML packaging script is being added for direct user testing without Pages; local container Chromium blocks WebGL2 even at about:blank (browser policy), so its standalone offline rendering is not independently GPU-verified in this environment.
+
+## v0.2 portable packer correction
+
+Packaging CI [39565042966](https://github.com/mattamior/holo-card-ultimate/actions/runs/39565042966) found a JS `String.replace()` replacement-string bug: `$&` in minified Three.js source was expanded to the matched script tag and produced a false unresolved-assets check. Changed replace arguments to callbacks so bundled source is inserted literally. The previous core prototype CI 39564398859 was green; the packing repair requires a fresh CI run.

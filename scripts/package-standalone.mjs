@@ -30,11 +30,11 @@ const favicon = readFileSync(join(dist, 'favicon.svg')).toString('base64');
 html = html.replace('href="./favicon.svg"', 'href="data:image/svg+xml;base64,' + favicon + '"');
 html = html.replace(
   '<link rel="stylesheet" crossorigin href="/holo-card-ultimate/' + cssPath + '">',
-  '<style>\n' + css + '\n</style>',
+  () => '<style>\n' + css + '\n</style>',
 );
 html = html.replace(
   '<script type="module" crossorigin src="/holo-card-ultimate/' + jsPath + '"></script>',
-  '<script type="module">\n' + js + '\n</script>',
+  () => '<script type="module">\n' + js + '\n</script>',
 );
 if (html.includes('/holo-card-ultimate/assets/') || html.includes('src="/src/main.ts"')) {
   throw new Error('Standalone HTML still references external build/source files.');
