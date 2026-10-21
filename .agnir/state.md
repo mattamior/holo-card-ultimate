@@ -23,3 +23,7 @@ A real-browser CI smoke harness (Playwright Chromium/SwiftShader) **passed** on 
 ## Optical material iteration v0.2 (2026-10-21)
 
 Principal accepted the v0.1 review goal: improve optical realism (narrow angle-selective high-intensity specular/diffraction, micro-grating, metallic undercoat), and add a classic 90s/00s collectible-card visual contrast. Implemented original GLSL `card.frag.glsl` modifications, uMetal/uDetail uniforms/sliders, a fourth vintage star-emboss/halftone preset with an original thunder-lynx SVG and its own masks; retained the same rendering/export chain. This is **an authored candidate until CI/runtime/visual validation**. Existing tests were extended. No third-party art or GPL implementation imported; v0.2 is an artistic optical simulation, not physically calibrated diffraction.
+
+## v0.2 runtime check and portable packaging (2026-10-21)
+
+Commit cc1b7c645eb829ac4005a1d40ed88bb0f770d128 passed Node tests, TypeScript/Vite production build and Chromium/SwiftShader WebGL2 browser smoke in [CI run 39564398859](https://github.com/mattamior/holo-card-ultimate/actions/runs/39564398859), including original retro card asset/preset, six sliders and PNG export. Actual human visual-quality score and mobile GPU benchmarks remain pending. A reproducible single-HTML packaging script is being added for direct user testing without Pages; local container Chromium blocks WebGL2 even at about:blank (browser policy), so its standalone offline rendering is not independently GPU-verified in this environment.

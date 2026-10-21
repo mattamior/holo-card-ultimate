@@ -53,3 +53,7 @@ GitHub CI additionally uses Playwright + Chromium/SwiftShader to load the produc
 ## v0.2 material quality direction
 
 This is a deliberate improvement over the overly broad, washed-out rainbow wash in v0.1. Two new independently controllable uniforms are `uMetal` (metallic undercoat) and `uDetail` (grating density/contrast). A fourth `retro` preset switches the artwork and masks to an original electric-lynx card inspired by the format and visual language of vintage collectible snack-pack inserts without copying a branded card. Material details and subjective authenticity **must be reviewed in a browser**; automated green tests do not imply an 8.5/10 optical-quality rating. The snapshot export remains one 1200×1680 PNG, not real lenticular foil printing.
+
+## Portable one-file test page
+
+Run `npm run build:standalone`. The resulting `dist/holo-card-ultimate-standalone.html` inlines the production bundle, CSS, original SVG artwork/masks and favicon as data URLs; it does not depend on GitHub Pages or remote hosting. After GitHub Actions validation, this file is also included in the `holographic-playground` workflow artifact. Opening local `file://` pages is subject to browser and enterprise security policies, so browser/device testing is still required. The portable bundler is implemented in `scripts/package-standalone.mjs`.
